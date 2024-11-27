@@ -23,7 +23,7 @@ public class ViagemService {
 
     public Viagem criarViagem(Viagem viagem) {
         viagem.setNotaMedia(0.0);
-        viagem.setAvaliacoes([null]);
+        viagem.setAvaliacoes(null);
         return viagemRepository.save(viagem);
     }
 
