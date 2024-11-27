@@ -22,13 +22,15 @@ public class ViagemService {
     }
 
     public Viagem criarViagem(Viagem viagem) {
+        viagem.setNotaMedia(0.0);
+        viagem.setAvaliacoes([null]);
         return viagemRepository.save(viagem);
     }
 
     public Optional<List<Viagem>> pesquisarViagem(String valor) {
         List<Viagem> viagens = getViagens();
         List<Viagem> viagensFiltradas = viagens.stream()
-            .filter(viagem -> viagem.getNome().toLowerCase().contains(valor.toLowerCase()) && 
+            .filter(viagem -> viagem.getNome().toLowerCase().contains(valor.toLowerCase()) || 
                               viagem.getLocalizacao().toLowerCase().contains(valor.toLowerCase()))
             .collect(Collectors.toList());
         return Optional.of(viagensFiltradas); 

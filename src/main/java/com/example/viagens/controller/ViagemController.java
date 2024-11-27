@@ -43,7 +43,7 @@ public class ViagemController {
         return new ResponseEntity<>("Viagem com esse destino não encontrada!", HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("detalhes/{codigo}")
+    @GetMapping("/{codigo}")
     public ResponseEntity<?> getViagemDetalhes(@PathVariable Long codigo) {
         Optional<Viagem> detalhesViagem = viagemService.getDetalhes(codigo);
         if(detalhesViagem.isPresent())
